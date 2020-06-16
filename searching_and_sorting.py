@@ -123,7 +123,27 @@ def selection_sort(the_sequence):
             the_sequence[i], the_sequence[smallest] = the_sequence[smallest], the_sequence[i]
 
 
+def insertion_sort(the_sequence):
+    """
+    Implementation of the insertion sort algorithm.
+    Sorts a sequence in ascending order using the insertion sort algorithm.
+    :param the_sequence:
+    :return:
+    """
+    size = len(the_sequence)
+    # Starts with the first item as the only sorted entry
+    for i in range(1, size):
+        # Save the value to be positioned.
+        value = the_sequence[i]
+        # Find the position where the value fits in the ordered part of the list
+        pos = i
+        while pos > 0 and value < the_sequence[pos - 1]:
+            # Shift the items to the right during the search
+            the_sequence[pos] = the_sequence[pos - 1]
+            pos -= 1
 
+        # Put the saved value into the open slot.
+        the_sequence[pos] = value
 
 
 # Driver program
@@ -136,8 +156,11 @@ print(find_smallest(list_strings))
 
 print(binary_search(sorted(list_numbers), target_number))
 
-bubble_sort(list_strings)
-print(list_strings)
+# bubble_sort(list_strings)
+# print(list_strings)
+#
+# selection_sort(list_numbers)
+# print(list_numbers)
 
-selection_sort(list_numbers)
+insertion_sort(list_numbers)
 print(list_numbers)
