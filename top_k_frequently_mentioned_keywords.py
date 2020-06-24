@@ -40,9 +40,9 @@ k = 2
 keywords = ["anacell", "betacellular", "cetracular", "deltacellular", "eurocell"]
 reviews = [
     "I love anacell Best services; Best services provided by anacell",
-    "betacellular has great services",
-    "deltacellular provides much better services than betacellular",
-    "cetracular is worse than anacell",
+    "betacellular has great services eurocell",
+    "deltacellular provides much better services than betacellular eurocell",
+    "cetracular is worse than anacell eurocell eurocell eurocell eurocell eurocell",
     "Betacellular is better than deltacellular.",
 ]
 
@@ -60,9 +60,11 @@ def top_k_frequent(top_k, words, list_of_texts):
         dict_top_freq[word.lower()] = 0
         for string in list_of_texts:
             if word.lower() in string.lower():
-                dict_top_freq[word.lower()] += 1
+                counter = string.lower().count(word.lower())
+                dict_top_freq[word.lower()] += counter
 
     list_top_sorted = sorted(dict_top_freq.items(), key=lambda item: item[1], reverse=True)
+    print(list_top_sorted)
 
     list_k = []
     for i in list_top_sorted:
